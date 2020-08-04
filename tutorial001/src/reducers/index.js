@@ -1,4 +1,4 @@
-import {CREATE_EVENT,DELETE_ALL_EVENTS,DELETE_EVENT} from '../actions'
+import {CREATE_EVENT,DELETE_ALL_EVENTS,DELETE_EVENT} from '../actions/index'
 
 
 const events = (state = [],action) => {

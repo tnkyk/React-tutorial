@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 
-import {DELETE_ALL_EVENT,CREATE_EVENT} from '../actions'
+import {DELETE_ALL_EVENTS,CREATE_EVENT} from '../actions'
+import AppContext from '../contexts/AppContext'
 
-const EventForm = ({state,dispatch}) => {
+const EventForm = () => {
+  const {state,dispatch} = useContext(AppContext)
   const [title,setTitle] = useState('')
   const [body,setBody] = useState('')
 
@@ -22,10 +24,11 @@ const EventForm = ({state,dispatch}) => {
   const deleteAllEvents = e => {
     e.preventDefault()
     const result  = window.confirm('全てのイベントを本当に削除しても良いですか？')
-    if (result) dispatch({type:DELETE_ALL_EVENT})
+    if (result) dispatch({type:DELETE_ALL_EVENTS})
   }
     return (
         <>
+        
             <h4>イベント作成フォーム</h4>
             <form>
                 <div className="form-group">
